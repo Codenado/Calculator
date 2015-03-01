@@ -12,13 +12,12 @@ import Foundation
 class Calculator {
     var currentValue: String = ""
     var display: String = ""
-    var memomry: String = "0"
+    var memory: String = "0"
     var action: String = ""
     
     func input(press: Int){
         currentValue = currentValue + String(press)
         display = currentValue
-        
     }
     
     func newAction(press: Int){
@@ -32,33 +31,27 @@ class Calculator {
        
         default:
             println("oops")
-            
         }
-        println(action)
     }
     
     func doAction() {
-        if memomry.toInt() != nil && currentValue.toInt() != nil {
+        if memory.toInt() != nil && currentValue.toInt() != nil {
             switch action {
-                case "+":
-                    memomry = String(currentValue.toInt()! + memomry.toInt()!)
-                display = memomry
+            case "+":
+                memory = String(currentValue.toInt()! + memory.toInt()!)
             case "*":
-                memomry = String(currentValue.toInt()! * memomry.toInt()!)
-                display = memomry
+                memory = String(currentValue.toInt()! * memory.toInt()!)
 
             case "-":
-                memomry = String(memomry.toInt()! - currentValue.toInt()!)
-                display = memomry
-
-
+                memory = String(memory.toInt()! - currentValue.toInt()!)
+                
             default:
-                memomry = currentValue
+                memory = currentValue
             }
+            display = memory
+
             currentValue = ""
         }
-       
-    
     }
     
     func getInput(press: Int){
@@ -75,13 +68,14 @@ class Calculator {
             
         case 14:
             display = "0"
-            memomry = "0"
+            memory = "0"
             currentValue = ""
             action = ""
         default:
             println("error")
         }
     }
+    
     func returnDisplay() -> String{
         if countElements(display) < 10{
             return display
@@ -90,9 +84,6 @@ class Calculator {
             return "Get a better calculator!"
         }
     }
-        
-    
-   
 }
     
     
