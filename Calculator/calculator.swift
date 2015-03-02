@@ -55,7 +55,6 @@ class Calculator {
     }
     
     func getInput(press: Int){
-        
         switch press {
         case 0...9:
             input(press)
